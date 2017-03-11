@@ -109,6 +109,12 @@ $(document).ready(function() {
 		updateArray();
 	});
 	
+	
+	// Gestione tasto Play	
+	$(".play").on("click",function(){
+		
+	});
+
 	// Gestisce il pulsante Upload di un file
 	$("#upload_form").submit(function(event) {
 		alert( "Handler for .submit() called." );

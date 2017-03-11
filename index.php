@@ -24,6 +24,15 @@
 		<div class="col">
 			<h2>LedPanel admin</h2>
 
+			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Save & Play</button>
+			<button type='button' id="stop" class='btn btn-warning'><span class='glyphicon glyphicon-stop' aria-hidden='true'></span> Stop</button>
+			<br/>
+			<br/>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="col">
 			<div id="sortable">
 			</div>
 		</div>	
@@ -60,7 +69,6 @@
 			</div>
 		</div>	
 	</div>
-
 
 </div> 
 
