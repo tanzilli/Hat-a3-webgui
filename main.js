@@ -66,8 +66,6 @@ function updateArray() {
 
 function updateEvents() {
 	$(".btn").on("click",function(){
-		console.log("Button " + $(this).html() + " " + $(this).attr("index"));
-		
 		if ($(this).html().search("Duplicate")>-1) {
 			slides.push(slides[$(this).attr("index")]);			
 			showPalimpsest();
@@ -111,8 +109,22 @@ $(document).ready(function() {
 	
 	
 	// Gestione tasto Play	
-	$(".play").on("click",function(){
-		
+	$("#play").on("click",function(){
+	
+		slide_list="";
+		slides.forEach(function(entry,index) {
+			slide_list+=entry["file"] + " ";
+		});
+	
+		$.ajax({
+			method : 'POST',
+			url : 'play.php',
+			data : { cmd: "Play", value: "SLIDE_LIST='" + slide_list + "'" },
+			success : function(data) {
+				warning(data);
+				console.log("Punto Play - " + data);
+			}
+		});
 	});
 
 	// Gestisce il pulsante Upload di un file

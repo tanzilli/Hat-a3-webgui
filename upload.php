@@ -10,9 +10,10 @@
 	} else {
 		printf("error");
 	}
-	//print_r($_FILES);
 
 	/*
+	print_r($_FILES);
+
 	Array
 	(
 		[userfile] => Array
