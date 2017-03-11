@@ -2,21 +2,16 @@
 	// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
 	// of $_FILES.
 	
-	$uploaddir = '/var/www/www_acmesystems_it/tanzilli/gui/';
+	$uploaddir = '/var/www/html/';
 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-	
-	echo '<pre>';
-	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-	    echo "File is valid, and was successfully uploaded.\n";
-	} else {
-	    echo "Possible file upload attack!\n";
-	}
-	
-	echo 'Here is some more debugging info:';
-	print_r($_FILES);
-	
-	print "</pre>";
 
+	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+		printf(basename($uploadfile));
+	} else {
+	    printf("error");
+	}
+	//print_r($_FILES);
+	
 
 /*
 File is valid, and was successfully uploaded.
@@ -33,8 +28,6 @@ Here is some more debugging info:Array
 
 )
 */
-
-
 
 
 ?>

@@ -51,6 +51,17 @@
 			</div>
 		</div>	
 	</div>
+
+	<div class="row">
+		<div class="col">
+			<div class="alert alert-warning">
+				<pre id="warning">
+				</pre>
+			</div>
+		</div>	
+	</div>
+
+
 </div> 
 
 

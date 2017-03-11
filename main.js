@@ -1,16 +1,19 @@
 
-var slides = [
+/*var slides = [
     { type: "image", file: "sabato_aperti.gif" }, 
     { type: "image", file: "nome_negozio.gif" },
     { type: "image", file: "foto_negozio.gif" },
     { type: "image", file: "vernici_colori.gif" },
     { type: "image", file: "duplicazione_chiavi.gif" },
     { type: "image", file: "orario.gif" },
-];
+];*/
+
+var slides = [];
 
 // Rigenera il palinsesto a partire da un Array
 function showPalimpsest() {
 	$("#sortable").text("");
+
 	slides.forEach(function(entry,index) {
 		$("#sortable").append("	\
 			<div class='slides alert alert-info' index='" + index + "'> \
@@ -21,8 +24,22 @@ function showPalimpsest() {
 		");		
 	});
 	updateEvents();
-
 }
+
+// Carica il palinsesto corrente dal pannello
+function loadPalimpsest() {
+	$.ajax({
+		dataType: "json",
+		url: "slides.txt",
+		success: function(data) {
+			data.forEach(function(entry,index) {
+				slides.push(entry);
+			});
+			showPalimpsest();
+		}
+	});
+}
+
 
 // Rigenera l'array a partire dal palinsesto
 // e ridisegna il palinsesto
@@ -63,6 +80,10 @@ function updateEvents() {
 	});
 }
 
+function warning(text) {
+	$("#warning").text(text);
+}
+
 $(document).ready(function() {
 	// Clear della console Javascript
 	console.API;
@@ -77,7 +98,9 @@ $(document).ready(function() {
 
 	console.log("Start");
 	
-	showPalimpsest();
+	//console.log(JSON.stringify(slides));
+	
+	loadPalimpsest();
 
 	$( "#sortable" ).sortable();
 	$( "#sortable" ).disableSelection();
@@ -110,7 +133,23 @@ $(document).ready(function() {
 			event.preventDefault();
 			return;
     	}
-    	console.log(this.files[0]);
+    	
+		var formData = new FormData();
+		formData.append('userfile', file);
+
+		$.ajax({
+			url : 'upload.php',
+			type : 'POST',
+			data : formData,
+			processData: false,  // tell jQuery not to process the data
+			contentType: false,  // tell jQuery not to set contentType
+			success : function(data) {
+				warning(data);
+				console.log("Punto A - " + data);
+				slides.push({"type":"image","file":data});
+				showPalimpsest();
+			}
+		});
 	});
 		
 	
