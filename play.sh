@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # In loop infinito legge la lista delle gif da mandare
 # sul pannello RGB 
 
@@ -28,7 +27,7 @@ do
 			sleep $DELAY
 		else
 			echo $SLIDE_LIST
-			#sudo $RGB_UTILS_PATH/led-image-viewer -l1 --led-chain=4 $SLIDE_LIST
+			sudo $RGB_UTILS_PATH/led-image-viewer -l1 --led-chain=4 $SLIDE_LIST
 		fi
 	else
 		echo File $IMAGE_LIST non trovato. Aspetto $DELAY secondi
