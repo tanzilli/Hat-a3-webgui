@@ -4,11 +4,12 @@
 # In loop infinito legge la lista delle gif da mandare
 # sul pannello RGB 
 
-# Lista immagini su singola riga separate da spazi
-# "SLIDE_LIST='pippo.gif sabato_aperti.git'"
+# File generato in php per comunicare la nuova lista 
+# di immagini da riprodurre a led-image-viewer
+# Il file deve contenere una stringa del tipo:
+# SLIDE_LIST='img1.gif img2.git img3.gif'
+
 IMAGE_LIST="/dev/shm/slides.env"
-
-
 
 # Secondi di ritardo tra una verifica e l'altra
 DELAY=5
