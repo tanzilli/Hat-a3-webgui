@@ -49,7 +49,7 @@
 						<!-- MAX_FILE_SIZE must precede the file input field -->
 						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
 						<!-- Name of input element determines name in $_FILES array -->
-						<label>Drop the image file here:</label>
+						<label>Drop the image file here to add a new slide:</label>
 						<br/>
 						<input class="form-control btn btn-default"" name="userfile" type="file" />
 						
