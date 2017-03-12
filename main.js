@@ -30,7 +30,7 @@ function showPalimpsest() {
 function loadPalimpsest() {
 	$.ajax({
 		dataType: "json",
-		url: "slides.txt",
+		url: "slides.json",
 		success: function(data) {
 			data.forEach(function(entry,index) {
 				slides.push(entry);
