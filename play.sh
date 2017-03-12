@@ -8,7 +8,7 @@
 # Il file deve contenere una stringa del tipo:
 # SLIDE_LIST='img1.gif img2.git img3.gif'
 
-IMAGE_LIST="/dev/shm/slides.env"
+IMAGE_LIST="slides.env"
 
 # Secondi di ritardo tra una verifica e l'altra
 DELAY=5
