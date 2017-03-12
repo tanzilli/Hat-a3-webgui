@@ -7,4 +7,4 @@
 * __upload.php__ Script richiamato in ajax da __main.js__ per fare l'upload delle gif via web
 * __play.php__ Script richiamato in ajax da __main.js__ per eseguire il play e lo stop delle animazioni su pannello a led
 
-Sergio Tanzilli &copy; 2017 - [http://www.acmesystems.it/HAT-A3)[http://www.acmesystems.it/HAT-A3]
+Sergio Tanzilli &copy; 2017 - [http://www.acmesystems.it/HAT-A3)(http://www.acmesystems.it/HAT-A3)

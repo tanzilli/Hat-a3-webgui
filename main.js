@@ -110,21 +110,38 @@ $(document).ready(function() {
 	
 	// Gestione tasto Play	
 	$("#play").on("click",function(){
-	
+		// Invia a play.php il contenuto da salvare nel file slides.env
 		slide_list="";
 		slides.forEach(function(entry,index) {
 			slide_list+=entry["file"] + " ";
 		});
-	
+		
 		$.ajax({
 			method : 'POST',
 			url : 'play.php',
-			data : { cmd: "Play", value: "SLIDE_LIST='" + slide_list + "'" },
+			data : { 
+				cmd: "play", 
+				value: "SLIDE_LIST='" + slide_list + "'", 
+				data: JSON.stringify(slides) 
+			},
 			success : function(data) {
-				warning(data);
-				console.log("Punto Play - " + data);
+				warning("Play success");
 			}
-		});
+		});		
+	});
+
+	// Gestione tasto Stop	
+	$("#stop").on("click",function(){
+		$.ajax({
+			method : 'POST',
+			url : 'play.php',
+			data : { 
+				cmd: "stop" 
+			},
+			success : function(data) {
+				warning("Stop success");
+			}
+		});		
 	});
 
 	// Gestisce il pulsante Upload di un file
