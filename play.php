@@ -5,7 +5,7 @@
 	}
 	
 	if ($_POST['cmd']=="stop") {
-		file_put_contents("/var/www/html/slides.env",""]);
+		file_put_contents("/var/www/html/slides.env"," ");
 	}	
 ?>
 

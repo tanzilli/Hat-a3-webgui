@@ -1,1 +1,1 @@
-[{"type":"image","file":"sabato_aperti.gif"},{"type":"image","file":"nome_negozio.gif"},{"type":"image","file":"foto_negozio.gif"},{"type":"image","file":"vernici_colori.gif"},{"type":"image","file":"duplicazione_chiavi.gif"},{"type":"image","file":"orario.gif"}]
+[{"type":"image","file":"nome_negozio.gif"},{"type":"image","file":"vernici_colori.gif"},{"type":"image","file":"duplicazione_chiavi.gif"},{"type":"image","file":"orario.gif"}]
