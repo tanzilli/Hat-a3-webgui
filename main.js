@@ -58,9 +58,6 @@ function updateArray() {
 		slides.push(entry);
 	});
 
-	slides.forEach(function(entry,index) {
-		console.log("C- " + index + " : " + entry["file"]);
-	});
 	showPalimpsest();
 }
 
@@ -180,7 +177,6 @@ $(document).ready(function() {
 			contentType: false,  // tell jQuery not to set contentType
 			success : function(data) {
 				warning(data);
-				console.log("Punto A - " + data);
 				slides.push({"type":"image","file":data});
 				showPalimpsest();
 			}
