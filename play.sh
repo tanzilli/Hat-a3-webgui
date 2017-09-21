@@ -14,7 +14,7 @@ IMAGE_LIST="slides.env"
 DELAY=5
 
 # Secondi di ritardo tra una slide e l'altra
-SLIDE_DELAY=5
+SLIDE_DELAY=4
 
 # Path del programma led-image-viewer
 RGB_UTILS_PATH="/home/pi/rpi-rgb-led-matrix/utils/"
@@ -32,7 +32,7 @@ do
 			echo $SLIDE_LIST
 
 			#Pannello 3x6 verticale
-			sudo $RGB_UTILS_PATH/led-image-viewer -l1 --led-chain=4 --led-parallel=3 -R270 -w $SLIDE_DELAY 5 $SLIDE_LIST
+			sudo $RGB_UTILS_PATH/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w $SLIDE_DELAY $SLIDE_LIST
 
 			#Pannello 4x1 orizzontale
 			#sudo $RGB_UTILS_PATH/led-image-viewer -l1 --led-chain=4 $SLIDE_LIST

@@ -24,7 +24,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h2>LedPanel admin</h2>
+			<h2>Insegna NetHome - Pannello di controllo</h2>
 
 			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Save & Play</button>
 			<button type='button' id="stop" class='btn btn-warning'><span class='glyphicon glyphicon-stop' aria-hidden='true'></span> Stop</button>
@@ -69,6 +69,25 @@
 				<pre id="warning">
 				</pre>
 			</div>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<h2>Come preparare nuove slides</h2>
+			
+			<p>
+				Le nuove slides devono essere dei file grafici in formato gif, jpg o png con un rapporto tra larghezza ed altezza di 3:6. 
+				<br/>
+				La risoluzione minima deve essere di 96x192 pixel.
+			</p>
+			<p>
+				E' possible preparare nuove immagini usano i seguenti editor on-line:
+			</p>
+
+			<ul>
+				<li><a href="https://www.aviary.com" target="_blank">https://www.aviary.com</a></li>
+			</ul>	
 		</div>	
 	</div>
 

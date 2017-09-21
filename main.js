@@ -17,7 +17,7 @@ function showPalimpsest() {
 	slides.forEach(function(entry,index) {
 		$("#sortable").append("	\
 			<div class='slides alert alert-info' index='" + index + "'> \
-				<img src='" + entry["file"] + "' width='256px'> \
+				<img src='" + entry["file"] + "' width='96px'> \
 				<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
 				<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
 			</div> \
@@ -155,13 +155,13 @@ $(document).ready(function() {
     	size = file.size;
     	type = file.type;
     	
-    	if (file.type!="image/gif") {
+    	if (file.type!="image/gif" && file.type!="image/png" && file.type!="image/jpeg")  {
 			alert( "File type not allowed");
 			event.preventDefault();
 			return;
     	}
-    	if (file.size>2000000) {
-			alert( "File type too long (max 2MB)");
+    	if (file.size>20000000) {
+			alert( "File type too long (max 20MB)");
 			event.preventDefault();
 			return;
     	}
