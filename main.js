@@ -9,6 +9,7 @@
 ];*/
 
 var slides = [];
+var image_w = 64
 
 // Rigenera il palinsesto a partire da un Array
 function showPalimpsest() {
@@ -17,7 +18,7 @@ function showPalimpsest() {
 	slides.forEach(function(entry,index) {
 		$("#sortable").append("	\
 			<div class='slides alert alert-info' index='" + index + "'> \
-				<img src='" + entry["file"] + "' width='96px'> \
+				<img src='" + entry["file"] + "' width='" + image_w + "px'> \
 				<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
 				<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
 			</div> \
