@@ -1,7 +1,7 @@
 
 /*var slides = [
-    { script: "noscript.py", file: "sabato_aperti.gif" }, 
-    { script: "noscript.py", file: "nome_negozio.gif" },
+    { type: "image", file: "sabato_aperti.png" }, 
+    { type: "time",  file: "clock.png" },
 ];*/
 
 var slides = [];
@@ -153,9 +153,15 @@ $(document).ready(function() {
 	});
 
 
-	// Gestione tasto Add	
-	$("#add").on("click",function(){
-		slides.push({"script":"noscript.py","file":"black.png"});			
+	// Gestione tasto Add time	
+	$("#add_ptime").on("click",function(){
+		slides.push({"type":"ptime","file":"icons/ptime.png"});			
+		showPalimpsest();
+	});
+
+	// Gestione tasto Add temp	
+	$("#add_ptemp").on("click",function(){
+		slides.push({"type":"ptemp","file":"icons/ptemp.png"});			
 		showPalimpsest();
 	});
 
@@ -196,7 +202,7 @@ $(document).ready(function() {
 			contentType: false,  // tell jQuery not to set contentType
 			success : function(data) {
 				warning(data);
-				slides.push({"script":"noscript.py","file":data});
+				slides.push({"type":"image","file":data});
 				showPalimpsest();
 			}
 		});

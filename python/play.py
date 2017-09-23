@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 
 import json
 import time
@@ -24,15 +24,24 @@ while True:
 					break
 
 				print(images_field["file"])
-				if images_field["file"]=="ora.png":
-					command="/var/www/html/python/ora.py"
+
+				if images_field["type"]=="ptime":
+					command="/var/www/html/python/ptime.py"
 					os.system(command)
-					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/ora.png")
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/ptime.png")
 					os.system(command)
 					continue
 
-				command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % (slides_path + images_field["file"])
-				os.system(command)
+				if images_field["type"]=="ptemp":
+					command="/var/www/html/python/ptemp.py"
+					os.system(command)
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/ptemp.png")
+					os.system(command)
+					continue
+
+				if images_field["type"]=="image":
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % (slides_path + images_field["file"])
+					os.system(command)
 				
 
 	

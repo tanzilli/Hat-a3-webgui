@@ -29,7 +29,8 @@
 			<button type='button' id="save" class='btn btn-primary'><span class='glyphicon glyphicon-save' aria-hidden='true'></span> Save</button>
 			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Play</button>
 			<button type='button' id="stop" class='btn btn-warning'><span class='glyphicon glyphicon-stop' aria-hidden='true'></span> Stop</button>
-			<button type='button' id="add" class='btn btn-dafault'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span> Add</button>
+			<button type='button' id="add_ptime" class='btn btn-dafault'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span> Add time</button>
+			<button type='button' id="add_ptemp" class='btn btn-dafault'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span> Add temp</button>
 			<br/>
 			<br/>
 		</div>	

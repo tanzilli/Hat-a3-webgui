@@ -7,4 +7,15 @@
 * __upload.php__ Script richiamato in ajax da __main.js__ per fare l'upload delle gif via web
 * __play.php__ Script richiamato in ajax da __main.js__ per eseguire il play e lo stop delle animazioni su pannello a led
 
+## Debian package to install 
+
+	sudo apt-get install python-pillow
+	sudo apt-get install python-requests
+	sudo apt-get install ffmpeg	
+
+## Links
+	
+* http://www.tanzolab.it/raspberry_ledpanel
+* https://github.com/hzeller/rpi-rgb-led-matrix
+
 Sergio Tanzilli &copy; 2017 - [http://www.tanzolab.it/HAT-A3](http://www.tanzolab.it/HAT-A3)
