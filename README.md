@@ -1,11 +1,14 @@
 # HAT-A3 web user interface
 
+![Screenshot](/images/screenshot.jpg)
+
 * __index.php__ Home page
 * __main.js__ Javascript local functions
-* __play.sh__ Script da lanciare  in __rc.local__ legge il file __slides.env__ e invia le gif su pannello a led
-* __slides.env__ File testo usato da __play_sh__ per la lista delle gif sa visualizzare
+* __slides.json__ List of image to display on the RGB led panel
 * __upload.php__ Script richiamato in ajax da __main.js__ per fare l'upload delle gif via web
-* __play.php__ Script richiamato in ajax da __main.js__ per eseguire il play e lo stop delle animazioni su pannello a led
+* __play.php__ This script writes on /run/ledplay to talk with python/play.py
+* __python/play.py__ Daemon in Python that reads the slides.json contents and launch led-image-viewer
+* __slides__ Binary images to show
 
 ## Debian package to install 
 
