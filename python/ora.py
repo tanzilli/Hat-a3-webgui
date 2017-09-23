@@ -19,7 +19,7 @@ font2 = ImageFont.truetype("Ubuntu-B.ttf", 34)
 font3 = ImageFont.truetype("Ubuntu-B.ttf", 16)
 
 #im=Image.new("RGB",size,"black")
-im=Image.open("ora.png")
+im=Image.open("/var/www/html/slides/ora.png")
 
 #Create a draw object to draw primitives on the new image 
 draw = ImageDraw.Draw(im)

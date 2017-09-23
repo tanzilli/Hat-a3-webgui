@@ -1,11 +1,7 @@
 
 /*var slides = [
-    { type: "image", file: "sabato_aperti.gif" }, 
-    { type: "image", file: "nome_negozio.gif" },
-    { type: "image", file: "foto_negozio.gif" },
-    { type: "image", file: "vernici_colori.gif" },
-    { type: "image", file: "duplicazione_chiavi.gif" },
-    { type: "image", file: "orario.gif" },
+    { script: "noscript.py", file: "sabato_aperti.gif" }, 
+    { script: "noscript.py", file: "nome_negozio.gif" },
 ];*/
 
 var slides = [];
@@ -41,7 +37,6 @@ function loadPalimpsest() {
 		}
 	});
 }
-
 
 // Rigenera l'array a partire dal palinsesto
 // e ridisegna il palinsesto
@@ -157,6 +152,14 @@ $(document).ready(function() {
 		});		
 	});
 
+
+	// Gestione tasto Add	
+	$("#add").on("click",function(){
+		slides.push({"script":"noscript.py","file":"black.png"});			
+		showPalimpsest();
+	});
+
+
 	// Gestisce il pulsante Upload di un file
 	$("#upload_form").submit(function(event) {
 		alert( "Handler for .submit() called." );
@@ -193,7 +196,7 @@ $(document).ready(function() {
 			contentType: false,  // tell jQuery not to set contentType
 			success : function(data) {
 				warning(data);
-				slides.push({"type":"image","file":data});
+				slides.push({"script":"noscript.py","file":data});
 				showPalimpsest();
 			}
 		});
