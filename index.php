@@ -40,6 +40,10 @@
 		</div>	
 	</div>
 	
+	<!----------------->
+	<!-- File upload -->
+	<!----------------->
+	 
 	
 	<div class="row">
 		<div class="col">

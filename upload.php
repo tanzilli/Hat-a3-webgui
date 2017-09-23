@@ -2,7 +2,7 @@
 	// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
 	// of $_FILES.
 
-	$uploaddir = '/var/www/html/';
+	$uploaddir = '/var/www/html/slides/';
 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
