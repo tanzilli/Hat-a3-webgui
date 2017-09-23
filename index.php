@@ -26,7 +26,8 @@
 		<div class="col">
 			<h2>Insegna NetHome - Pannello di controllo</h2>
 
-			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Save & Play</button>
+			<button type='button' id="save" class='btn btn-primary'><span class='glyphicon glyphicon-save' aria-hidden='true'></span> Save</button>
+			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Play</button>
 			<button type='button' id="stop" class='btn btn-warning'><span class='glyphicon glyphicon-stop' aria-hidden='true'></span> Stop</button>
 			<br/>
 			<br/>

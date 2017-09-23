@@ -107,8 +107,8 @@ $(document).ready(function() {
 	});
 	
 	
-	// Gestione tasto Play	
-	$("#play").on("click",function(){
+	// Gestione tasto Save	
+	$("#save").on("click",function(){
 		// Invia a play.php il contenuto da salvare nel file slides.env
 		slide_list="";
 		slides.forEach(function(entry,index) {
@@ -119,9 +119,23 @@ $(document).ready(function() {
 			method : 'POST',
 			url : 'play.php',
 			data : { 
-				cmd: "play", 
+				cmd: "save", 
 				value: "SLIDE_LIST='" + slide_list + "'", 
 				data: JSON.stringify(slides) 
+			},
+			success : function(data) {
+				warning("Save success");
+			}
+		});		
+	});
+
+	// Gestione tasto Start	
+	$("#play").on("click",function(){
+		$.ajax({
+			method : 'POST',
+			url : 'play.php',
+			data : { 
+				cmd: "play" 
 			},
 			success : function(data) {
 				warning("Play success");

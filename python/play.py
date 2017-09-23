@@ -5,8 +5,9 @@ import time
 import os
 import stat
 
-images_list="slides.json"
+images_list="/var/www/html/slides.json"
 my_runfile = "/run/ledplay"
+slides_path = "/var/www/html/slides/"
 
 if not os.path.exists(my_runfile):
 	os.mknod(my_runfile)	
@@ -23,7 +24,7 @@ while True:
 				print(images_field["file"])
 				print("--------------------")
 			
-				command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % images_field["file"]
+				command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % (slides_path + images_field["file"])
 				print "  " , command
 				print("--------------------")
 				os.system(command)
