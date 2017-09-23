@@ -1,6 +1,13 @@
 # HAT-A3 web user interface
 
+Web front-end to manage an RGB panel with the Raspberry Pi and an [Acme Systems 
+HAT-A3 RGB board](http://www.tanzolab.it/HAT-A3).
+
+Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
+
 ![Screenshot](/images/screenshot.jpg)
+
+## Files used
 
 * __index.php__ Home page
 * __main.js__ Javascript local functions
@@ -10,7 +17,15 @@
 * __python/play.py__ Daemon in Python that reads the slides.json contents and launch led-image-viewer
 * __slides__ Binary images to show
 
-## Debian package to install 
+Installation
+
+	git clone https://github.com/tanzilli/Hat-a3-webgui.git
+
+How to install the rpi-rgb-led-matrix software on your Raspberry Pi
+
+* https://github.com/hzeller/rpi-rgb-led-matrix
+
+Debian packages required 
 
 	sudo apt-get install python-pillow
 	sudo apt-get install python-requests
@@ -19,6 +34,5 @@
 ## Links
 	
 * http://www.tanzolab.it/raspberry_ledpanel
-* https://github.com/hzeller/rpi-rgb-led-matrix
 
 Sergio Tanzilli &copy; 2017 - [http://www.tanzolab.it/HAT-A3](http://www.tanzolab.it/HAT-A3)
