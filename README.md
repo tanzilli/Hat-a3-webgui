@@ -7,7 +7,7 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 
 ![Screenshot](/images/screenshot.jpg)
 
-## Files used
+## Files description
 
 * __index.php__ Home page
 * __main.js__ Javascript local functions
