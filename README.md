@@ -31,6 +31,7 @@ Clone the repository then config Apache2 to use it as DocumentRoot
 
 	git clone https://github.com/tanzilli/Hat-a3-webgui.git
 
+Configure __python/play.py__ as a service under systemd
 
 ### Debian packages required
 
