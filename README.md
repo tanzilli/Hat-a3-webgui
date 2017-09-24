@@ -21,15 +21,22 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 	* __ptime.py__ Time widget
 * __video__ Some scripts to convert video file to gif images using ffmpeg
 
-Installation
+## Installation
 
-	git clone https://github.com/tanzilli/Hat-a3-webgui.git
-
-How to install the rpi-rgb-led-matrix software on your Raspberry Pi
+Install __rpi-rgb-led-matrix__ software on your Raspberry Pi following this web site:
 
 * https://github.com/hzeller/rpi-rgb-led-matrix
 
-## Debian packages to install on Raspberry 
+Clone the repository then config Apache2 to use it as DocumentRoot
+
+	git clone https://github.com/tanzilli/Hat-a3-webgui.git
+
+
+### Debian packages required
+
+This is a web application written in PHP so you have to install Apache2 and PHP: 
+
+	sudo apt-get install apache2 php
 
 This package is required by the widget written in python to create dinamically the images using [Pillow](https://python-pillow.org/)
 
