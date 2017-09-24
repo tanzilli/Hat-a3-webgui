@@ -35,7 +35,7 @@ This package is required by the widget python/ptemp.py to get info from [OpenWea
 
 	sudo apt-get install python-requests
 	
-This package is required just if you want to generate gif image from video using this script (video/m2g_2.sh)[Hat-a3-webgui/video/m2g_2.sh]
+This package is required just if you want to generate gif image from video using this script [video/m2g_2.sh](Hat-a3-webgui/video/m2g_2.sh)
 
 	sudo apt-get install ffmpeg	
 
