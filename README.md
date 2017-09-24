@@ -53,6 +53,7 @@ This package is required just if you want to generate gif image from video using
 
 ## Links
 	
+* http://www.tanzolab.it/HAT-A3
 * http://www.tanzolab.it/raspberry_ledpanel
 
-Sergio Tanzilli &copy; 2017 - [http://www.tanzolab.it/HAT-A3](http://www.tanzolab.it/HAT-A3)
+Sergio Tanzilli &copy; 2017
