@@ -25,10 +25,18 @@ How to install the rpi-rgb-led-matrix software on your Raspberry Pi
 
 * https://github.com/hzeller/rpi-rgb-led-matrix
 
-Debian packages required 
+## Debian packages to install on Raspberry 
+
+This package is required by the widget written in python to create dinamically the images using [Pillow](https://python-pillow.org/)
 
 	sudo apt-get install python-pillow
+
+This package is required by the widget python/ptemp.py to get info from [OpenWeatherMap](https://openweathermap.org/)
+
 	sudo apt-get install python-requests
+	
+This package is required just if you want to generate gif image from video using this script (video/m2g_2.sh)[Hat-a3-webgui/video/m2g_2.sh]
+
 	sudo apt-get install ffmpeg	
 
 ## Links
