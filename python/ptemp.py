@@ -58,7 +58,6 @@ for city in cities:
 del draw
 
 #Generate a JPEG image (a format very similar to byte array RGB we need)
-output = StringIO.StringIO()
 im.save("/tmp/ptemp.png", format='PNG')
 del im
 	

@@ -22,7 +22,7 @@ path, filename = os.path.split(full_path)
 
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 api_key = '5a3e61a21bf10f79e69a4a6a9af17a57'  
-city = "CARSOLI"
+city = "roma"
 
 #Panel size
 size = 96, 192
@@ -52,35 +52,38 @@ im=Image.open(path + "/" + "pweather.png")
 draw = ImageDraw.Draw(im)
 draw.fontmode="0" #No antialias
 
-y=0
 wdata = get_weather(city)
 
-#print wdata
-#Get the weather icon
-wicon_name=wdata['weather'][0]['icon'] + ".png"
-im_wicon=Image.open(path + "/wicons/" + wicon_name)
+# City
+y=4
+draw.text((0,4), city.upper(), (0,250,250), font=font)
 
-y=50
-draw.text((0,0+y), city, (250,0,250), font=font)
-
-#Get the weather descrition
-y=65
+#Weather descrition
+y=100
 wdescription=wdata['weather'][0]['description'].upper()
-draw.text((0,0+y), wdescription, (250,0,250), font=font)
+draw.text((0,y), wdescription, (0,0,250), font=font)
 
-y=80
-wtemp="Temp: " + str(math.ceil(wdata['main']['temp'])) + u'°C '
-draw.text((0,0+y), wtemp, (250,0,250), font=font)
+y=y+15
+wtemp="Temp: " + ("%.1f" % wdata['main']['temp']) + u'°C '
+print wdata['main']['temp']
+draw.text((0,y), wtemp, (0,0,250), font=font)
 
-y=95
+y=y+15
 whumidity="Um %: " + str(math.ceil(wdata['main']['humidity']))
-draw.text((0,0+y), whumidity, (250,0,250), font=font)
+draw.text((0,y), whumidity, (0,0,250), font=font)
+
+y=y+15
+wwind_speed="Vento: " + str(math.ceil(wdata['wind']['speed']))
+draw.text((0,y), wwind_speed, (0,0,250), font=font)
 
 del draw
 
-#Generate a JPEG image (a format very similar to byte array RGB we need)
 y=10
-im.paste(im_wicon,((size[0]-50)/2,y),im_wicon)
+#Get the weather icon
+wicon_name=wdata['weather'][0]['icon'] + ".png"
+im_wicon=Image.open(path + "/wicons/" + wicon_name)
+im_wicon_zoom=im_wicon.resize((96,96), Image.ANTIALIAS)
+im.paste(im_wicon_zoom,(0,y),im_wicon_zoom)
 im.save("/tmp/pweather.png", format='PNG')
 del im
 	

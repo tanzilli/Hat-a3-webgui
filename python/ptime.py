@@ -40,7 +40,6 @@ draw.text((0,70+y), date_string, (255,255,0), font=font1)
 del draw
 
 #Generate a JPEG image (a format very similar to byte array RGB we need)
-output = StringIO.StringIO()
 im.save("/tmp/ptime.png", format='PNG')
 del im
 	
