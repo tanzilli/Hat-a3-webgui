@@ -1,0 +1,12 @@
+[Unit]
+Description=Insegna play
+After=network.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python /var/www/html/python/play.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

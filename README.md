@@ -16,6 +16,7 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 * __play.php__ This script writes on /run/ledplay to talk with python/play.py
 * __python/play.py__ Daemon in Python that reads the slides.json contents and launch led-image-viewer
 * __slides__ Binary images to show
+* __play.service__ systemd servi definition
 
 Installation
 
@@ -30,6 +31,13 @@ Debian packages required
 	sudo apt-get install python-pillow
 	sudo apt-get install python-requests
 	sudo apt-get install ffmpeg	
+	
+## Systemd service
+
+Save the [play.service](play.service) systemd definition in __/lib/systemd/system__ then
+enable the service:
+
+	sudo systemctl enable play.service	
 
 ## Links
 	

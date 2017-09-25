@@ -15,6 +15,9 @@ import math
 import requests
 from datetime import datetime
 
+full_path = os.path.realpath(__file__)
+path, filename = os.path.split(full_path)
+
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 api_key = '5a3e61a21bf10f79e69a4a6a9af17a57'  
 cities = ['Carsoli','Milano','Trento','Bologna','Roma','Napoli','Palermo']
@@ -37,10 +40,10 @@ def get_temperature(city):
 		return 'N/A'
 
 #Load a TTF font
-font = ImageFont.truetype("Ubuntu-B.ttf", 16)
+font = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 16)
 
 #im=Image.new("RGB",size,"black")
-im=Image.open("ptemp.png")
+im=Image.open(path + "/" + "ptemp.png")
 
 #Create a draw object to draw primitives on the new image 
 draw = ImageDraw.Draw(im)

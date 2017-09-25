@@ -10,16 +10,19 @@ from datetime import datetime
 
 mesi=["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"]
 
+full_path = os.path.realpath(__file__)
+path, filename = os.path.split(full_path)
+
 #Panel size
 size = 96, 192
 
 #Load a TTF font
-font1 = ImageFont.truetype("Ubuntu-B.ttf", 18)
-font2 = ImageFont.truetype("Ubuntu-B.ttf", 34)
-font3 = ImageFont.truetype("Ubuntu-B.ttf", 16)
+font1 = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 18)
+font2 = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 34)
+font3 = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 16)
 
 #im=Image.new("RGB",size,"black")
-im=Image.open("ptime.png")
+im=Image.open(path + "/" + "ptime.png")
 
 #Create a draw object to draw primitives on the new image 
 draw = ImageDraw.Draw(im)
