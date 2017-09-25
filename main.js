@@ -66,8 +66,10 @@ function updateEvents() {
 		}
 
 		if ($(this).html().search("Remove")>-1) {
-			slides.splice($(this).attr("index"),1);			
-			showPalimpsest();
+			if (confirm("Are you sure ?") == true) {
+				slides.splice($(this).attr("index"),1);			
+				showPalimpsest();
+			} 
 		}
 	});
 }
