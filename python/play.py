@@ -41,10 +41,10 @@ while True:
 					os.system(command)
 					continue
 
-				if images_field["type"]=="ptemp":
-					command=path + "/" + "ptemp.py"
+				if images_field["type"]=="pweather":
+					command=path + "/" + "pweather.py"
 					os.system(command)
-					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/ptemp.png")
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/pweather.png")
 					os.system(command)
 					continue
 

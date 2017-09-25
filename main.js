@@ -161,9 +161,9 @@ $(document).ready(function() {
 		showPalimpsest();
 	});
 
-	// Gestione tasto Add temp	
-	$("#add_ptemp").on("click",function(){
-		slides.push({"type":"ptemp","file":"icons/ptemp.png"});			
+	// Gestione tasto Add weather	
+	$("#add_pweather").on("click",function(){
+		slides.push({"type":"pweather","file":"icons/pweather.png"});			
 		showPalimpsest();
 	});
 

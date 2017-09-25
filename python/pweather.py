@@ -88,6 +88,6 @@ im.save("/tmp/pweather.png", format='PNG')
 del im
 	
 #Direct test	
-command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 10 %s" % ("/tmp/pweather.png")
-os.system(command)
+#command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 10 %s" % ("/tmp/pweather.png")
+#os.system(command)
 
