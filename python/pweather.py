@@ -22,7 +22,7 @@ path, filename = os.path.split(full_path)
 
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 api_key = '5a3e61a21bf10f79e69a4a6a9af17a57'  
-city = "roma"
+city = "LADISPOLI"
 
 #Panel size
 size = 96, 192
@@ -42,8 +42,14 @@ def get_weather(city):
 		print error
 		return 'N/A'
 
+def center_text(draw,y,text="TEXT",color=(0,0,255),font_size=12,line_size=96):
+	font = ImageFont.truetype("Ubuntu-B.ttf", font_size)
+	w,h = font.getsize(text)
+	draw.text(((line_size-w)/2,y), text, color,font)
+
 #Load a TTF font
-font = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 13)
+font_large = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 18)
+font_small = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", 13)
 
 #im=Image.new("RGB",size,"black")
 im=Image.open(path + "/" + "pweather.png")
@@ -54,31 +60,33 @@ draw.fontmode="0" #No antialias
 
 wdata = get_weather(city)
 
+# Oggi
+center_text(draw,18,"OGGI",(0,255,0,12),14,size[0])
+
 # City
-y=4
-draw.text((0,4), city.upper(), (0,250,250), font=font)
+center_text(draw,90,city.upper(),(255,255,0),14,size[0])
 
 #Weather descrition
-y=100
+y=120
 wdescription=wdata['weather'][0]['description'].upper()
-draw.text((0,y), wdescription, (0,0,250), font=font)
+draw.text((0,y), wdescription, (0,0,255), font_small)
 
 y=y+15
 wtemp="Temp: " + ("%.1f" % wdata['main']['temp']) + u'°C '
 print wdata['main']['temp']
-draw.text((0,y), wtemp, (0,0,250), font=font)
+draw.text((0,y), wtemp, (0,0,255), font_small)
 
 y=y+15
 whumidity="Um %: " + str(math.ceil(wdata['main']['humidity']))
-draw.text((0,y), whumidity, (0,0,250), font=font)
+draw.text((0,y), whumidity, (0,0,255), font_small)
 
 y=y+15
 wwind_speed="Vento: " + str(math.ceil(wdata['wind']['speed']))
-draw.text((0,y), wwind_speed, (0,0,250), font=font)
+draw.text((0,y), wwind_speed, (0,0,255), font_small)
 
 del draw
 
-y=10
+y=24
 #Get the weather icon
 wicon_name=wdata['weather'][0]['icon'] + ".png"
 im_wicon=Image.open(path + "/wicons/" + wicon_name)
