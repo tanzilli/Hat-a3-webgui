@@ -64,10 +64,10 @@ wdata = get_weather(city)
 center_text(draw,18,"OGGI",(0,255,0,12),14,size[0])
 
 # City
-center_text(draw,90,city.upper(),(255,255,0),14,size[0])
+center_text(draw,100,city.upper(),(255,255,0),14,size[0])
 
 #Weather descrition
-y=120
+y=125
 wdescription=wdata['weather'][0]['description'].upper()
 draw.text((0,y), wdescription, (0,0,255), font_small)
 
