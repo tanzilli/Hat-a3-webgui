@@ -22,7 +22,7 @@ path, filename = os.path.split(full_path)
 
 base_url = 'http://api.openweathermap.org/data/2.5/weather'
 api_key = '5a3e61a21bf10f79e69a4a6a9af17a57'  
-city = "LADISPOLI"
+city = "CARSOLI"
 
 #Panel size
 size = 96, 192
@@ -43,7 +43,7 @@ def get_weather(city):
 		return 'N/A'
 
 def center_text(draw,y,text="TEXT",color=(0,0,255),font_size=12,line_size=96):
-	font = ImageFont.truetype("Ubuntu-B.ttf", font_size)
+	font = ImageFont.truetype(path + "/" + "Ubuntu-B.ttf", font_size)
 	w,h = font.getsize(text)
 	draw.text(((line_size-w)/2,y), text, color,font)
 
@@ -73,7 +73,6 @@ draw.text((0,y), wdescription, (0,0,255), font_small)
 
 y=y+15
 wtemp="Temp: " + ("%.1f" % wdata['main']['temp']) + u'°C '
-print wdata['main']['temp']
 draw.text((0,y), wtemp, (0,0,255), font_small)
 
 y=y+15
