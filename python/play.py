@@ -11,6 +11,11 @@ images_list= "../slides.json"
 slides_dir = "../slides"
 my_runfile = "/run/ledplay"
 
+#Numero di pannelli in linea 
+led_chain=2
+led_parallel=1
+rotate=270
+
 if not os.path.exists(my_runfile):
 	os.mknod(my_runfile)	
 	os.chmod(my_runfile, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)
@@ -19,7 +24,7 @@ f = open(my_runfile,"w")
 f.write("go")
 f.close()
 
-command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % (path + "/" + slides_dir + "/" + "logo.png")
+command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + "logo.png")
 os.system(command)
 
 while True:
@@ -37,19 +42,19 @@ while True:
 				if images_field["type"]=="ptime":
 					command=path + "/" + "ptime.py"
 					os.system(command)
-					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/ptime.png")
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, "/tmp/ptime.png")
 					os.system(command)
 					continue
 
 				if images_field["type"]=="pweather":
 					command=path + "/" + "pweather.py"
 					os.system(command)
-					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % ("/tmp/pweather.png")
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, "/tmp/pweather.png")
 					os.system(command)
 					continue
 
 				if images_field["type"]=="image":
-					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=6 --led-parallel=3 -R270 -w 5 %s" % (path + "/" + slides_dir + "/" + images_field["file"])
+					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + images_field["file"])
 					os.system(command)
 				
 	print "Wait..."
