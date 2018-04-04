@@ -18,7 +18,7 @@ led_chain=2
 led_parallel=1
 
 #Panel rotation (0,90,180,270)
-rotate=270
+rotate=0
 
 if not os.path.exists(my_runfile):
 	os.mknod(my_runfile)	
@@ -27,10 +27,6 @@ if not os.path.exists(my_runfile):
 f = open(my_runfile,"w")
 f.write("play")
 f.close()
-
-command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + "logo.png")
-os.system(command)
-
 
 def checkPlayFile():
 	if not os.path.exists(my_runfile):
