@@ -8,7 +8,7 @@ var slides = [];
 var image_w = 64
 var slides_path="slides/"
 
-// Rigenera il palinsesto a partire da un Array
+// Create the palimpstest from an array
 function showPalimpsest() {
 	$("#sortable").text("");
 
@@ -24,7 +24,7 @@ function showPalimpsest() {
 	updateEvents();
 }
 
-// Carica il palinsesto corrente dal pannello
+// Load the palimpsest from json file
 function loadPalimpsest() {
 	$.ajax({
 		dataType: "json",
@@ -38,8 +38,7 @@ function loadPalimpsest() {
 	});
 }
 
-// Rigenera l'array a partire dal palinsesto
-// e ridisegna il palinsesto
+// Create the array from palimpsest inside the DOM and redraw the DOM
 function updateArray() {
     var slides_copy=[];
 
@@ -104,7 +103,7 @@ $(document).ready(function() {
 	});
 	
 	
-	// Gestione tasto Save	
+	// Save button	
 	$("#save").on("click",function(){
 		// Invia a play.php il contenuto da salvare nel file slides.env
 		slide_list="";
@@ -126,7 +125,7 @@ $(document).ready(function() {
 		});		
 	});
 
-	// Gestione tasto Start	
+	// Start button	
 	$("#play").on("click",function(){
 		$.ajax({
 			method : 'POST',
@@ -140,7 +139,7 @@ $(document).ready(function() {
 		});		
 	});
 
-	// Gestione tasto Stop	
+	// Stop button	
 	$("#stop").on("click",function(){
 		$.ajax({
 			method : 'POST',
@@ -155,27 +154,27 @@ $(document).ready(function() {
 	});
 
 
-	// Gestione tasto Add time	
+	// Add time button	
 	$("#add_ptime").on("click",function(){
 		slides.push({"type":"ptime","file":"icons/ptime.png"});			
 		showPalimpsest();
 	});
 
-	// Gestione tasto Add weather	
+	// Add weather button	
 	$("#add_pweather").on("click",function(){
 		slides.push({"type":"pweather","file":"icons/pweather.png"});			
 		showPalimpsest();
 	});
 
 
-	// Gestisce il pulsante Upload di un file
+	// File upload
 	$("#upload_form").submit(function(event) {
 		alert( "Handler for .submit() called." );
 		event.preventDefault();
 	});
 	
-	//http://stackoverflow.com/questions/2320069/jquery-ajax-file-upload
-	// Gestisce la selezione del file da scaricare
+	// http://stackoverflow.com/questions/2320069/jquery-ajax-file-upload
+	// File to upload selection
 	$(':file').change(function(){
 		var file = this.files[0];
     	name = file.name;

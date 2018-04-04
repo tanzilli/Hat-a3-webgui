@@ -11,9 +11,13 @@ images_list= "../slides.json"
 slides_dir = "../slides"
 my_runfile = "/run/ledplay"
 
-#Numero di pannelli in linea 
+#Number of RGB panels per line
 led_chain=2
+
+#Number of lines used
 led_parallel=1
+
+#Panel rotation (0,90,180,270)
 rotate=270
 
 if not os.path.exists(my_runfile):
