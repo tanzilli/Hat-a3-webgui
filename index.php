@@ -59,7 +59,7 @@
 				    <div class="form-group">
 	
 						<!-- MAX_FILE_SIZE must precede the file input field -->
-						<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+						<input type="hidden" name="MAX_FILE_SIZE" value="200000000" />
 						<!-- Name of input element determines name in $_FILES array -->
 						<label>Drop here the file to add to the palimpsest (gif jpg png m4v mp4):</label>
 						<br/>

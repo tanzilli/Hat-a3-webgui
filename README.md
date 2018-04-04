@@ -50,6 +50,16 @@ on your Raspberry by typing:
 	cd
 	git clone https://github.com/hzeller/rpi-rgb-led-matrix 
 
+then compile ed-image-viewer and video-viewer program used to send images and video
+to the RGB led panel:
+
+	cd rpi-rgb-led-matrix/utils
+	sudo apt-get update
+	sudo apt-get install libgraphicsmagick++-dev libwebp-dev -y
+	make led-image-viewer
+	sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
+	make video-viewer	
+
 Replace the default html directory of Apache 2 with the clone of 
 the [Web GUI interface repository](https://github.com/tanzilli/Hat-a3-webgui):
 
@@ -67,6 +77,9 @@ Configure __/var/www/html/python/play.py__ as a service under systemd
 Save the [play.service](play.service) systemd definition in __/lib/systemd/system__ then
 enable the service:
 
+	cd /var/www/html
+	sudo cp play.service /lib/systemd/system
+	udo systemctl daemon-reload
 	sudo systemctl enable play.service	
 	sudo systemctl start play.service	
 
@@ -74,5 +87,6 @@ enable the service:
 	
 * http://www.tanzolab.it/HAT-A3
 * http://www.tanzolab.it/raspberry_ledpanel
+* https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/utils
 
 Sergio Tanzilli &copy; 2018
