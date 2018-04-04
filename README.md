@@ -60,6 +60,10 @@ to the RGB led panel:
 	sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
 	make video-viewer	
 
+Disable the snd_bcm2835 driver as explained here:
+
+* [Bad interaction with Sound](https://github.com/hzeller/rpi-rgb-led-matrix#bad-interaction-with-sound)
+
 Replace the default html directory of Apache 2 with the clone of 
 the [Web GUI interface repository](https://github.com/tanzilli/Hat-a3-webgui):
 
