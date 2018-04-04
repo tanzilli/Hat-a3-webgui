@@ -9,12 +9,12 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 
 * __index.php__ Main web page
 * __main.js__ Javascript local functions
-* __slides.json__ List of image to display on the RGB led panel
-* __upload.php__ Script richiamato in ajax da __main.js__ per fare l'upload delle gif via web
-* __play.php__ This script writes on /run/ledplay to talk with python/play.py
+* __slides.json__ List of images to display on the RGB led panel
+* __upload.php__ Script called by __main.js__ to upload images and video from the web interface
+* __play.php__ Script used by the web interface to write on /run/ledplay. This file is created bt play.py and is used to play or not images on the rgb led panel
 * __python/play.py__ Daemon in Python that reads the slides.json contents and launch led-image-viewer
-* __slides__ Binary images to show
-* __play.service__ systemd servi definition
+* __slides__ Binary images or videos to show
+* __play.service__ systemd service definition
 * __upload.php__ Script for images upload
 * __play.php__ This script is used just to write in __/run/ledplay__ the text "running" used by the python daemon __play.py__ to start sending images to the RGB panel
 * __slides__ Inside this directory are saved the binary images to show on the RGB panel
@@ -22,7 +22,6 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 	* __play.py__ Daemon in Python that reads the slides.json contents and launch led-image-viewer
 	* __ptemp.py__ Temperature widget
 	* __ptime.py__ Time widget
-* __video__ Some scripts to convert video file to gif images using ffmpeg
 
 ## Installation
 
@@ -32,7 +31,7 @@ Install __rpi-rgb-led-matrix__ software on your Raspberry Pi following this web 
 
 Clone the repository then config Apache2 to use it as DocumentRoot
 
-	git clone https://github.com/tanzilli/Hat-a3-webgui.git
+	git clone https://github.com/tanzilli/Hat-a3-webgui.git 
 
 Configure __python/play.py__ as a service under systemd
 
@@ -49,10 +48,6 @@ This package is required by the widget written in python to create dinamically t
 This package is required by the widget python/ptemp.py to get info from [OpenWeatherMap](https://openweathermap.org/)
 
 	sudo apt-get install python-requests
-	
-This package is required just if you want to generate gif image from video using this script [video/m2g_2.sh](Hat-a3-webgui/video/m2g_2.sh)
-
-	sudo apt-get install ffmpeg	
 	
 ## Systemd service
 
