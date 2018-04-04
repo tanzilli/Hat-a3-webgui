@@ -1,4 +1,4 @@
-# HAT-A3 web user interface
+# HAT-A3 Web GUI
 
 Web front-end to manage an RGB panel with the Raspberry Pi and an [Acme Systems 
 HAT-A3 RGB board](http://www.tanzolab.it/HAT-A3).
