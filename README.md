@@ -25,16 +25,6 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 
 ## Installation
 
-Install __rpi-rgb-led-matrix__ software on your Raspberry Pi following this web site:
-
-* https://github.com/hzeller/rpi-rgb-led-matrix
-
-Clone the repository then config Apache2 to use it as DocumentRoot
-
-	git clone https://github.com/tanzilli/Hat-a3-webgui.git 
-
-Configure __python/play.py__ as a service under systemd
-
 ### Debian packages required
 
 This is a web application written in PHP so you have to install Apache2 and PHP: 
@@ -48,6 +38,17 @@ This package is required by the widget written in python to create dinamically t
 This package is required by the widget python/ptemp.py to get info from [OpenWeatherMap](https://openweathermap.org/)
 
 	sudo apt-get install python-requests
+
+Install __rpi-rgb-led-matrix__ software on your Raspberry Pi following this web site:
+
+* https://github.com/hzeller/rpi-rgb-led-matrix
+
+Clone the repository then config Apache2 to use it as DocumentRoot
+
+	git clone https://github.com/tanzilli/Hat-a3-webgui.git 
+
+Configure __python/play.py__ as a service under systemd
+
 	
 ## Systemd service
 
