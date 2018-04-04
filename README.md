@@ -70,12 +70,10 @@ and set the files ownership to www-data user:
 
 	sudo chown -R www-data:www-data /var/www/html
 
-### play.py as Systemd service
+### Run play.py at startup as systemd service
 
-Configure __/var/www/html/python/play.py__ as a service under systemd
-
-Save the [play.service](play.service) systemd definition in __/lib/systemd/system__ then
-enable the service:
+Save the [play.service](play.service) systemd definition inside the
+directory  __/lib/systemd/system__ and enable the service by typing:
 
 	cd /var/www/html
 	sudo cp play.service /lib/systemd/system
