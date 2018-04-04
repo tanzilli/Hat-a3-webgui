@@ -29,7 +29,12 @@ Based on the  https://github.com/hzeller/rpi-rgb-led-matrix project
 
 This is a web application written in PHP so you have to install Apache2 and PHP: 
 
+	sudo update
 	sudo apt-get install apache2 php
+
+Install git to clone the source repositories:
+
+	sudo apt-get install git
 
 This package is required by the widget written in python to create dinamically the images using [Pillow](https://python-pillow.org/)
 
@@ -39,23 +44,31 @@ This package is required by the widget python/ptemp.py to get info from [OpenWea
 
 	sudo apt-get install python-requests
 
-Install __rpi-rgb-led-matrix__ software on your Raspberry Pi following this web site:
+Clone the [rpi-rgb-led-matrix repository](https://github.com/hzeller/rpi-rgb-led-matrix) 
+on your Raspberry by typing:
 
-* https://github.com/hzeller/rpi-rgb-led-matrix
+	cd
+	git clone https://github.com/hzeller/rpi-rgb-led-matrix 
 
-Clone the repository then config Apache2 to use it as DocumentRoot
+Replace the default html directory of Apache 2 with the clone of 
+the [Web GUI interface repository](https://github.com/tanzilli/Hat-a3-webgui):
 
-	git clone https://github.com/tanzilli/Hat-a3-webgui.git 
+	sudo rm -rf /var/www/html
+	sudo git clone https://github.com/tanzilli/Hat-a3-webgui.git /var/www/html
 
-Configure __python/play.py__ as a service under systemd
+and set the files ownership to www-data user:
 
-	
-## Systemd service
+	sudo chown -R www-data:www-data /var/www/html
+
+### play.py as Systemd service
+
+Configure __/var/www/html/python/play.py__ as a service under systemd
 
 Save the [play.service](play.service) systemd definition in __/lib/systemd/system__ then
 enable the service:
 
 	sudo systemctl enable play.service	
+	sudo systemctl start play.service	
 
 ## Links
 	

@@ -1,5 +1,5 @@
 [Unit]
-Description=Insegna play
+Description=RGB led player
 After=network.target
 
 [Service]
