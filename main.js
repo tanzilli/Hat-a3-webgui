@@ -8,7 +8,7 @@ var slides = [];
 var image_w = 64
 var slides_path="slides/"
 
-// Create the palimpstest from an array
+// Inject in the DOM the palimpsest starting from a array
 function showPalimpsest() {
 	$("#sortable").text("");
 
@@ -16,6 +16,7 @@ function showPalimpsest() {
 		$("#sortable").append("	\
 			<div class='slides alert alert-info' index='" + index + "'> \
 				<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'> \
+				<p>" + entry["file"] + "<p> \
 				<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
 				<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
 			</div> \
@@ -65,7 +66,7 @@ function updateEvents() {
 		}
 
 		if ($(this).html().search("Remove")>-1) {
-			if (confirm("Are you sure ?") == true) {
+			if (confirm("Are you sure to remove this file ?") == true) {
 				slides.splice($(this).attr("index"),1);			
 				showPalimpsest();
 			} 

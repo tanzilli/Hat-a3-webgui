@@ -24,7 +24,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h2>RGB led panel</h2>
+			<h2>RGB led panel web GUI</h2>
 
 			<button type='button' id="save" class='btn btn-primary'><span class='glyphicon glyphicon-save' aria-hidden='true'></span> Save</button>
 			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Play</button>
