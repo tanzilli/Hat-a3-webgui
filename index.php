@@ -24,7 +24,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h2>Insegna NetHome - Palinsesto</h2>
+			<h2>RGB led panel</h2>
 
 			<button type='button' id="save" class='btn btn-primary'><span class='glyphicon glyphicon-save' aria-hidden='true'></span> Save</button>
 			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Play</button>
@@ -88,20 +88,9 @@
 
 	<div class="row">
 		<div class="col">
-			<h2>Come preparare nuove slides</h2>
-			
 			<p>
-				Le nuove slides devono essere dei file grafici in formato gif, jpg o png con un rapporto tra larghezza ed altezza di 3:6. 
-				<br/>
-				La risoluzione minima deve essere di 96x192 pixel.
+				Sergio Tanzilli &copy; 2018 - <a href="https://github.com/tanzilli/Hat-a3-webgui" target="_blank">Fork me on GitHub</a></li>
 			</p>
-			<p>
-				E' possible preparare nuove immagini usano i seguenti editor on-line:
-			</p>
-
-			<ul>
-				<li><a href="https://www.aviary.com" target="_blank">https://www.aviary.com</a></li>
-			</ul>	
 		</div>	
 	</div>
 

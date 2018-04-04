@@ -21,22 +21,30 @@ if not os.path.exists(my_runfile):
 	os.chmod(my_runfile, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)
 
 f = open(my_runfile,"w")
-f.write("go")
+f.write("play")
 f.close()
 
 command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + "logo.png")
 os.system(command)
 
-while True:
-	if os.path.exists(my_runfile) and os.path.getsize(my_runfile) > 0:
 
+def checkPlayFile():
+	if not os.path.exists(my_runfile):
+		return False
+
+	f=open(my_runfile,"r")
+	content=f.read();
+	print content
+	if "play" in content:
+		return True
+	return False
+
+while True:
+	if checkPlayFile():
 		with open(path + "/" + images_list) as json_data:
 			d = json.load(json_data)
 	
 			for images_field in d:
-				if os.path.getsize(my_runfile) == 0:
-					break
-
 				print(images_field["file"])
 
 				if images_field["type"]=="ptime":

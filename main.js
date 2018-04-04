@@ -121,7 +121,7 @@ $(document).ready(function() {
 				data: JSON.stringify(slides) 
 			},
 			success : function(data) {
-				warning("Save success");
+				warning(data);
 			}
 		});		
 	});
@@ -135,7 +135,7 @@ $(document).ready(function() {
 				cmd: "play" 
 			},
 			success : function(data) {
-				warning("Play success");
+				warning(data);
 			}
 		});		
 	});
@@ -149,7 +149,7 @@ $(document).ready(function() {
 				cmd: "stop" 
 			},
 			success : function(data) {
-				warning("Stop success");
+				warning(data);
 			}
 		});		
 	});
