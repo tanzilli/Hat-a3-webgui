@@ -39,6 +39,10 @@ def checkPlayFile():
 		return True
 	return False
 
+
+# Launch the led-matrix utilities as explained here
+# https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/utils
+
 while True:
 	if checkPlayFile():
 		with open(path + "/" + images_list) as json_data:
@@ -61,8 +65,12 @@ while True:
 					os.system(command)
 					continue
 
-				if images_field["type"]=="image":
+				if images_field["type"]=="image/jpeg":
 					command="/home/pi/rpi-rgb-led-matrix/utils/led-image-viewer -l1 --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -w 5 %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + images_field["file"])
+					os.system(command)
+
+				if images_field["type"]=="video/mp4":
+					command="/home/pi/rpi-rgb-led-matrix/utils/video-viewer --led-chain=%d --led-parallel=%d %s" % (led_chain, led_parallel, path + "/" + slides_dir + "/" + images_field["file"])
 					os.system(command)
 				
 	print "Wait..."

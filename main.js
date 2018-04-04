@@ -13,9 +13,16 @@ function showPalimpsest() {
 	$("#sortable").text("");
 
 	slides.forEach(function(entry,index) {
+	
+		if (entry["type"]=="video/mp4") {
+			dummy="<video controls='true'><source src='" + slides_path + entry["file"] + "'></video>";
+		} else {
+			dummy="<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'>";
+		}
+	
 		$("#sortable").append("	\
 			<div class='slides alert alert-info' index='" + index + "'> \
-				<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'> \
+				" + dummy + " \
 				<p>" + entry["file"] + "<p> \
 				<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
 				<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
@@ -182,7 +189,7 @@ $(document).ready(function() {
     	size = file.size;
     	type = file.type;
     	
-    	if (file.type!="image/gif" && file.type!="image/png" && file.type!="image/jpeg")  {
+    	if (file.type!="image/gif" && file.type!="image/png" && file.type!="image/jpeg" && file.type!="video/mp4")  {
 			alert( "File type not allowed");
 			event.preventDefault();
 			return;
@@ -204,7 +211,8 @@ $(document).ready(function() {
 			contentType: false,  // tell jQuery not to set contentType
 			success : function(data) {
 				warning(data);
-				slides.push({"type":"image","file":data});
+				info=data.split(",");
+				slides.push({"type":info[1],"file":info[0]});
 				showPalimpsest();
 			}
 		});

@@ -6,7 +6,7 @@
 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-		printf(basename($uploadfile));
+		printf(basename($uploadfile) . "," . $_FILES['userfile']['type']);
 	} else {
 		printf("error");
 	}
