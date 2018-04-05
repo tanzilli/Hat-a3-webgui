@@ -29,9 +29,9 @@
 			<button type='button' id="save" class='btn btn-primary'><span class='glyphicon glyphicon-save' aria-hidden='true'></span> Save</button>
 			<button type='button' id="play" class='btn btn-success'><span class='glyphicon glyphicon-play' aria-hidden='true'></span> Play</button>
 			<button type='button' id="stop" class='btn btn-warning'><span class='glyphicon glyphicon-stop' aria-hidden='true'></span> Stop</button>
+			<button type='button' id="add_text" class='btn btn-default'><span class='glyphicon glyphicon-text-width' aria-hidden='true'></span> Add text</button>
 			<button type='button' id="add_ptime" class='btn btn-default'><span class='glyphicon glyphicon-time' aria-hidden='true'></span> Add time</button>
 			<button type='button' id="add_pweather" class='btn btn-default'><span class='glyphicon glyphicon-cloud' aria-hidden='true'></span> Add weather</button>
-			<button type='button' id="add_text" class='btn btn-default'><span class='glyphicon glyphicon-text-width' aria-hidden='true'></span> Add text</button>
 			<br/>
 			<br/>
 		</div>	

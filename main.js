@@ -16,24 +16,39 @@ function showPalimpsest() {
 	
 		if (entry["type"]=="video/mp4") {
 			dummy="<video controls='true'><source src='" + slides_path + entry["file"] + "'></video>";
+			$("#sortable").append("	\
+				<div class='slides alert alert-info' index='" + index + "'> \
+					" + dummy + " \
+					<p>" + entry["file"] + "<p> \
+					<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
+					<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
+				</div> \
+			");		
 		} 
 		
 		if (entry["type"]=="image/png" || entry["type"]=="image/jpg" || entry["type"]=="image/gif") {
 			dummy="<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'>";
+			$("#sortable").append("	\
+				<div class='slides alert alert-info' index='" + index + "'> \
+					" + dummy + " \
+					<p>" + entry["file"] + "<p> \
+					<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
+					<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
+				</div> \
+			");		
 		}
 
 		if (entry["type"]=="text") {
-			dummy="Questo e' un testo";
+			$("#sortable").append("	\
+				<div class='slides alert alert-info' index='" + index + "'> \
+					Text: \
+					<input type='text' value='" + entry["value"] + "'> \
+					<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
+					<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
+				</div> \
+			");		
 		}
 	
-		$("#sortable").append("	\
-			<div class='slides alert alert-info' index='" + index + "'> \
-				" + dummy + " \
-				<p>" + entry["file"] + "<p> \
-				<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
-				<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
-			</div> \
-		");		
 	});
 	updateEvents();
 }
@@ -46,6 +61,7 @@ function loadPalimpsest() {
 		success: function(data) {
 			data.forEach(function(entry,index) {
 				slides.push(entry);
+				console.log(entry);
 			});
 			showPalimpsest();
 		}
@@ -180,9 +196,9 @@ $(document).ready(function() {
 		showPalimpsest();
 	});
 
-	// Add weather button	
+	// Add text button	
 	$("#add_text").on("click",function(){
-		slides.push({"type":"text","value":"Text"});			
+		slides.splice(0,0,{"type":"text","value":"Shifting text"});			
 		showPalimpsest();
 	});
 
