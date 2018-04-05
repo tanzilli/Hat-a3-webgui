@@ -16,8 +16,14 @@ function showPalimpsest() {
 	
 		if (entry["type"]=="video/mp4") {
 			dummy="<video controls='true'><source src='" + slides_path + entry["file"] + "'></video>";
-		} else {
+		} 
+		
+		if (entry["type"]=="image/png" || entry["type"]=="image/jpg" || entry["type"]=="image/gif") {
 			dummy="<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'>";
+		}
+
+		if (entry["type"]=="text") {
+			dummy="Questo e' un testo";
 		}
 	
 		$("#sortable").append("	\
@@ -171,6 +177,12 @@ $(document).ready(function() {
 	// Add weather button	
 	$("#add_pweather").on("click",function(){
 		slides.push({"type":"pweather","file":"icons/pweather.png"});			
+		showPalimpsest();
+	});
+
+	// Add weather button	
+	$("#add_text").on("click",function(){
+		slides.push({"type":"text","value":"Text"});			
 		showPalimpsest();
 	});
 
