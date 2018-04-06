@@ -12,13 +12,13 @@ slides_dir = "../slides"
 my_runfile = "/run/ledplay"
 
 #Number of RGB panels per line
-led_chain=5
+led_chain=2
 
 #Number of lines used
-led_parallel=3
+led_parallel=1
 
 #Panel rotation (0,90,180,270)
-rotate=270
+rotate=0
 
 if not os.path.exists(my_runfile):
 	os.mknod(my_runfile)	
@@ -49,8 +49,6 @@ while True:
 			d = json.load(json_data)
 	
 			for images_field in d:
-				print(images_field["file"])
-
 				if images_field["type"]=="ptime":
 					command=path + "/" + "ptime.py"
 					os.system(command)
@@ -71,6 +69,12 @@ while True:
 
 				if images_field["type"]=="video/mp4":
 					command="/home/pi/rpi-rgb-led-matrix/utils/video-viewer --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + images_field["file"])
+					print command
+					os.system(command)
+
+				if images_field["type"]=="text":
+					#command="/home/pi/rpi-rgb-led-matrix/utils/video-viewer --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' %s" % (led_chain, led_parallel, rotate, path + "/" + slides_dir + "/" + images_field["file"])
+					command="/home/pi/rpi-rgb-led-matrix/examples-api-use/scrolling-text-example --led-chain=%d --led-parallel=%d --led-pixel-mapper='Rotate:%d' -f /home/pi/rpi-rgb-led-matrix/fonts/8x13.bdf -s 1 -l 1 \"%s\"" %  (led_chain, led_parallel, rotate, images_field["value"])
 					print command
 					os.system(command)
 				

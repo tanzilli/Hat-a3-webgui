@@ -26,7 +26,7 @@ function showPalimpsest() {
 			");		
 		} 
 		
-		if (entry["type"]=="image/png" || entry["type"]=="image/jpg" || entry["type"]=="image/gif") {
+		if (entry["type"]=="image/png" || entry["type"]=="image/jpeg" || entry["type"]=="image/gif") {
 			dummy="<img src='" + slides_path + entry["file"] + "' width='" + image_w + "px'>";
 			$("#sortable").append("	\
 				<div class='slides alert alert-info' index='" + index + "'> \
@@ -42,7 +42,7 @@ function showPalimpsest() {
 			$("#sortable").append("	\
 				<div class='slides alert alert-info' index='" + index + "'> \
 					Text: \
-					<input type='text' value='" + entry["value"] + "'> \
+					<input class='textvalues' index='" + index +  "' type='text' value='" + entry["value"] + "'> \
 					<button id='duplicate_button_" + index +"'  index='" + index + "' type='button' class='btn btn-primary'><span class='glyphicon glyphicon-duplicate' aria-hidden='true'></span> Duplicate</button> \
 					<button id='remove_button_" + index +"' index='" + index + "' type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span> Remove</button> \
 				</div> \
@@ -101,6 +101,15 @@ function updateEvents() {
 			} 
 		}
 	});
+
+	// Update slides on text input change	
+	$(".textvalues").on("change",function(){
+		//slides.splice(0,0,{"type":"ptime","file":"icons/ptime.png"});			
+		//showPalimpsest();
+		//slides[parseInt($(this).attr("index"))]["value"]=$(this).val();
+		slides[$(this).attr("index")]["value"]=$(this).val();
+	});
+
 }
 
 function warning(text) {
@@ -135,18 +144,17 @@ $(document).ready(function() {
 	
 	// Save button	
 	$("#save").on("click",function(){
-		// Invia a play.php il contenuto da salvare nel file slides.env
-		slide_list="";
-		slides.forEach(function(entry,index) {
+		// Aggiorna i campi text nell'array slides con i valori correnti dal DOM
+
+		/*slides.forEach(function(entry,index) {
 			slide_list+=entry["file"] + " ";
-		});
+		});*/
 		
 		$.ajax({
 			method : 'POST',
 			url : 'play.php',
 			data : { 
 				cmd: "save", 
-				value: "SLIDE_LIST='" + slide_list + "'", 
 				data: JSON.stringify(slides) 
 			},
 			success : function(data) {
@@ -183,16 +191,15 @@ $(document).ready(function() {
 		});		
 	});
 
-
 	// Add time button	
 	$("#add_ptime").on("click",function(){
-		slides.push({"type":"ptime","file":"icons/ptime.png"});			
+		slides.splice(0,0,{"type":"ptime","file":"icons/ptime.png"});			
 		showPalimpsest();
 	});
 
 	// Add weather button	
 	$("#add_pweather").on("click",function(){
-		slides.push({"type":"pweather","file":"icons/pweather.png"});			
+		slides.splice(0,0,{"type":"pweather","file":"icons/pweather.png"});			
 		showPalimpsest();
 	});
 
@@ -201,7 +208,6 @@ $(document).ready(function() {
 		slides.splice(0,0,{"type":"text","value":"Shifting text"});			
 		showPalimpsest();
 	});
-
 
 	// File upload
 	$("#upload_form").submit(function(event) {
@@ -216,8 +222,8 @@ $(document).ready(function() {
     	name = file.name;
     	size = file.size;
     	type = file.type;
-    	
-    	if (file.type!="image/gif" && file.type!="image/png" && file.type!="image/jpeg" && file.type!="video/mp4")  {
+ 		
+    	if (!(file.type!="image/gif" || file.type!="image/png" || file.type!="image/jpeg" || file.type!="video/mp4"))  {
 			alert( "File type not allowed");
 			event.preventDefault();
 			return;
@@ -240,7 +246,7 @@ $(document).ready(function() {
 			success : function(data) {
 				warning(data);
 				info=data.split(",");
-				slides.push({"type":info[1],"file":info[0]});
+				slides.splice(0,0,{"type":info[1],"file":info[0]});
 				showPalimpsest();
 			}
 		});
